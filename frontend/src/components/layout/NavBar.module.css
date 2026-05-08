@@ -1,0 +1,79 @@
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 13px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: padding 0.2s, background 0.3s, box-shadow 0.3s;
+}
+
+/* Dark variant (landing / auth) */
+.dark {
+  background: rgba(13,15,22,0.82);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-dark);
+}
+.dark.compact {
+  padding: 10px 40px;
+  background: rgba(13,15,22,0.95);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+}
+
+/* Light variant (dashboard / editor) */
+.light {
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--pebble-border);
+  box-shadow: var(--shadow-xs);
+}
+
+/* Logo */
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  background: none; border: none; cursor: pointer; padding: 0;
+}
+.logoMark {
+  width: 30px; height: 30px; background: var(--burg);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 600;
+  color: var(--mist); flex-shrink: 0; box-shadow: 0 0 12px var(--burg-glow);
+}
+.logoText {
+  font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.dark  .logoText { color: var(--mist); }
+.light .logoText { color: var(--ink);  }
+
+/* Centre links */
+.centreLinks { display: flex; gap: 4px; }
+.link {
+  padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500;
+  text-decoration: none; transition: all 0.15s;
+}
+.dark  .link { color: var(--pebble); }
+.dark  .link:hover { color: var(--mist); background: var(--mist-faint); }
+.light .link { color: var(--ink-3); }
+.light .link:hover { color: var(--ink); background: var(--mist); }
+
+/* Editor breadcrumb */
+.breadcrumb { flex: 1; display: flex; justify-content: center; }
+.breadcrumbFile { font-size: 12px; color: var(--ink-4); }
+.light .breadcrumbFile { color: var(--ink-4); }
+.dark  .breadcrumbFile { color: var(--pebble); }
+
+/* Right area */
+.right { display: flex; align-items: center; gap: 8px; }
+
+/* About icon button */
+.aboutBtn {
+  width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+  border: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.dark  .aboutBtn { background: var(--mist-faint); color: var(--sky-dim); }
+.dark  .aboutBtn:hover { background: var(--sky-soft); color: var(--sky); }
+.light .aboutBtn { background: var(--mist); color: var(--steel-dark); border-color: var(--pebble-border); }
+.light .aboutBtn:hover { background: var(--sky-soft); color: var(--steel); }
+
+@media (max-width: 768px) {
+  .nav         { padding: 12px 20px; }
+  .centreLinks { display: none; }
+}

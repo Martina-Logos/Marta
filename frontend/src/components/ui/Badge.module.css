@@ -1,0 +1,25 @@
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 3px 9px; border-radius: 20px;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border: 1px solid; white-space: nowrap;
+}
+.small { padding: 2px 7px; font-size: 9px; }
+
+.ontopic {
+  background: var(--sky-soft); color: var(--steel-dark);
+  border-color: var(--sky-border);
+}
+.drift {
+  background: var(--burg-soft); color: #c94040;
+  border-color: var(--burg-border);
+}
+.profane {
+  background: var(--pebble-soft); color: var(--pebble-dark);
+  border-color: var(--pebble-border);
+}
+.review {
+  background: rgba(141,161,185,0.12); color: var(--steel-dark);
+  border-color: var(--steel-border);
+}

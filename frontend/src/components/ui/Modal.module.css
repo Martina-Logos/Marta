@@ -1,0 +1,62 @@
+.overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.55); backdrop-filter: blur(8px);
+  display: flex; opacity: 0; pointer-events: none;
+  transition: opacity 0.22s;
+}
+.overlay.open { opacity: 1; pointer-events: all; }
+
+/* Centered modal */
+.center {
+  margin: auto; width: calc(100% - 40px);
+  background: var(--dark-card); border: 1px solid var(--border-dark);
+  border-radius: var(--r-xl); overflow: hidden;
+  box-shadow: 0 24px 72px rgba(0,0,0,0.6);
+  transform: scale(0.96) translateY(8px);
+  transition: transform 0.24s ease;
+}
+.overlay.open .center { transform: scale(1) translateY(0); }
+
+/* Side panel (slides from right) */
+.side {
+  margin-left: auto; margin-top: 0; margin-bottom: 0;
+  width: 420px; height: 100%;
+  background: var(--dark-card); border-left: 1px solid var(--border-dark);
+  overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+  transform: translateX(30px);
+  transition: transform 0.28s ease;
+  max-width: calc(100vw - 40px);
+}
+.overlay.open .side { transform: translateX(0); }
+
+/* Head */
+.head {
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--border-dark);
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 12px; background: rgba(183,204,227,0.03); flex-shrink: 0;
+}
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; color: var(--mist);
+}
+.subtitle { font-size: 12px; color: var(--pebble); margin-top: 3px; }
+.close {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,255,255,0.06); border: 1px solid var(--border-dark);
+  color: var(--pebble); cursor: pointer; display: flex; align-items: center;
+  justify-content: center; transition: all 0.15s; flex-shrink: 0;
+}
+.close:hover { background: rgba(255,255,255,0.12); color: var(--mist); }
+
+/* Body */
+.body {
+  padding: 20px 22px 24px; overflow-y: auto; flex: 1;
+}
+.body::-webkit-scrollbar { width: 3px; }
+.body::-webkit-scrollbar-thumb { background: var(--border-dark); border-radius: 2px; }
+
+@media (max-width: 520px) {
+  .side { width: 100vw; }
+}

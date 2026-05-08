@@ -1,0 +1,29 @@
+.wrap {
+  display: inline-flex; align-items: center;
+  gap: 8px; cursor: pointer; user-select: none;
+}
+.disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+
+.track {
+  position: relative; border: none; cursor: pointer;
+  border-radius: 999px; padding: 0;
+  background: var(--pebble-light); border: 1.5px solid var(--pebble-border);
+  transition: background 0.2s, border-color 0.2s;
+}
+.on { background: var(--steel); border-color: var(--steel-dark); }
+
+.md { width: 36px; height: 20px; }
+.sm { width: 28px; height: 16px; }
+
+.knob {
+  position: absolute; top: 2px; left: 2px;
+  border-radius: 50%; background: var(--surface-card);
+  box-shadow: 0 1px 4px rgba(30,30,34,0.3);
+  transition: transform 0.2s;
+}
+.md .knob { width: 14px; height: 14px; }
+.sm .knob { width: 10px; height: 10px; }
+.md.on .knob { transform: translateX(16px); }
+.sm.on .knob { transform: translateX(12px); }
+
+.label { font-size: 12px; color: var(--ink-3); font-weight: 500; white-space: nowrap; }

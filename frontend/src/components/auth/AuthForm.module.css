@@ -1,0 +1,58 @@
+.form { display: flex; flex-direction: column; gap: 16px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--pebble);
+}
+.inputWrap { position: relative; }
+.inputIcon {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  color: var(--pebble); pointer-events: none;
+}
+.input {
+  width: 100%; padding: 11px 14px 11px 36px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border-dark);
+  border-radius: var(--r-sm); font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px; color: var(--mist); outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input:focus {
+  border-color: rgba(183,204,227,0.4);
+  box-shadow: 0 0 0 3px rgba(183,204,227,0.08);
+}
+.input::placeholder { color: rgba(188,189,184,0.3); }
+
+.error {
+  padding: 9px 12px; border-radius: var(--r-sm);
+  background: var(--burg-soft); border: 1px solid var(--burg-border);
+  font-size: 12.5px; color: #d46060; line-height: 1.5;
+}
+
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 11px; color: var(--pebble);
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border-dark);
+}
+
+.googleBtn {
+  width: 100%; padding: 11px;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark);
+  border-radius: var(--r-sm); color: var(--mist-dim);
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.15s;
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+}
+.googleBtn:hover { background: rgba(255,255,255,0.1); color: var(--mist); }
+
+.switchLine {
+  text-align: center; font-size: 12px; color: var(--pebble);
+}
+.switchBtn {
+  background: none; border: none; cursor: pointer;
+  color: var(--sky-dim); font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 600; transition: color 0.15s;
+}
+.switchBtn:hover { color: var(--sky); }
