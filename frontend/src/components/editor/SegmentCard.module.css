@@ -1,0 +1,103 @@
+/* ── Base card ──────────────────────────────────────────────── */
+
+.card {
+  background: var(--surface-card); border: 1px solid var(--pebble-border);
+  border-radius: var(--r); padding: 11px 13px; cursor: grab;
+  transition: all 0.15s; border-left: 3px solid transparent;
+  box-shadow: var(--shadow-xs); display: flex; gap: 10px;
+  user-select: none;
+}
+.card:hover { box-shadow: var(--shadow-sm); }
+.card:active { cursor: grabbing; }
+
+/* Status borders */
+.card_ontopic { border-left-color: var(--steel); }
+.card_drift   {
+  border-left-color: var(--burg);
+  background: rgba(114,16,16,0.03);
+  border-color: rgba(114,16,16,0.2);
+}
+.card_profane { border-left-color: var(--pebble-dark); }
+
+/* Removed */
+.cardRemoved {
+  opacity: 0.32; background: var(--mist); box-shadow: none;
+  border-left-color: var(--pebble-light) !important;
+  border-color: var(--pebble-light);
+}
+
+/* Drag over */
+.cardDragOver { border-color: var(--steel-border) !important; box-shadow: 0 0 0 2px var(--sky-soft); }
+
+/* ADHD mode — stronger borders, bigger radius */
+.cardAdhd { border-radius: 14px; padding: 13px 15px; border-left-width: 4px; }
+
+/* ── Grip handle ─────────────────────────────────────────────── */
+
+.grip {
+  display: flex; align-items: flex-start; padding-top: 3px; flex-shrink: 0;
+  opacity: 0.25; cursor: grab; color: var(--ink);
+  transition: opacity 0.15s;
+}
+.card:hover .grip { opacity: 0.5; }
+
+/* ── Card body ───────────────────────────────────────────────── */
+
+.body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0; }
+
+/* Meta row */
+.meta {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 6px; flex-wrap: wrap;
+}
+.timestamp {
+  font-size: 10px; font-weight: 700;
+  background: var(--burg); color: var(--mist);
+  padding: 2px 7px; border-radius: 4px; white-space: nowrap;
+  font-variant-numeric: tabular-nums; flex-shrink: 0;
+}
+.speaker  { font-size: 10.5px; color: var(--ink-4); flex-shrink: 0; }
+.duration { font-size: 9.5px; color: var(--ink-4); margin-left: auto; opacity: 0.7; flex-shrink: 0; }
+
+/* Transcript text */
+.text { font-size: 13px; line-height: 1.6; color: var(--ink); font-weight: 300; margin-bottom: 8px; }
+.textStruck { text-decoration: line-through; color: var(--ink-4); }
+
+/* Profanity word button */
+.profWord {
+  background: rgba(188,189,184,0.2); border-radius: 3px; padding: 0 4px;
+  color: var(--pebble-dark); text-decoration: line-through; cursor: pointer;
+  border: none; border-bottom: 1.5px solid var(--pebble-dark);
+  font-family: inherit; font-size: inherit; font-weight: inherit;
+  transition: all 0.12s; line-height: inherit;
+}
+.profWord:hover { background: rgba(188,189,184,0.35); }
+.profMuted {
+  text-decoration: none; color: var(--ink);
+  background: rgba(141,161,185,0.12); border-bottom-color: var(--steel);
+}
+
+/* Actions row */
+.actions { display: flex; gap: 6px; }
+.actionBtn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: var(--r-sm);
+  font-size: 10.5px; font-weight: 600; border: 1px solid;
+  cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s;
+}
+.btnRemove {
+  background: var(--burg-soft); color: var(--burg-bright);
+  border-color: var(--burg-border);
+}
+.btnRemove:hover { background: rgba(114,16,16,0.18); }
+.btnRestore {
+  background: var(--sky-soft); color: var(--steel-dark);
+  border-color: var(--sky-border);
+}
+.btnRestore:hover { background: rgba(183,204,227,0.28); }
+
+/* ADHD hints */
+.hint {
+  font-size: 10.5px; color: var(--steel-dark); margin-top: 6px;
+  opacity: 0.75; line-height: 1.5;
+}

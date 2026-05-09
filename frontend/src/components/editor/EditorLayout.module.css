@@ -1,0 +1,188 @@
+/* ── Full editor layout (after file is processed) ──────────── */
+
+.editorRoot {
+  flex: 1; display: flex; flex-direction: column;
+  overflow: hidden; background: var(--surface-bg);
+  padding-top: 56px; /* navbar height */
+}
+
+.topBar {
+  padding: 7px 20px;
+  display: flex; align-items: center; justify-content: flex-end;
+  background: var(--surface-card);
+  border-bottom: 1px solid var(--pebble-border);
+  flex-shrink: 0;
+}
+
+.editorBody {
+  flex: 1; display: flex; overflow: hidden;
+}
+
+/* ── Setup / processing screens (centred cards) ─────────────── */
+
+.setupScreen {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 40px 24px; background: var(--surface-bg);
+  padding-top: 96px; /* clear navbar */
+}
+
+/* Shared card base */
+.setupCard, .processingCard {
+  width: 100%; background: var(--surface-card);
+  border: 1px solid var(--pebble-border);
+  border-radius: var(--r-xl); padding: 36px 32px;
+  box-shadow: var(--shadow);
+}
+.setupCard     { max-width: 520px; display: flex; flex-direction: column; gap: 20px; }
+.processingCard { max-width: 400px; text-align: center; display: flex; flex-direction: column; gap: 16px; align-items: center; }
+
+/* ── Upload card ─────────────────────────────────────────────── */
+
+.setupStepLabel {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--steel-dark);
+}
+.setupTitle {
+  font-family: 'Cormorant Garamond', serif; font-size: 28px;
+  font-weight: 400; color: var(--ink); line-height: 1.2;
+}
+.setupSub { font-size: 13.5px; color: var(--ink-3); line-height: 1.6; }
+
+/* Drop zone */
+.dropzone {
+  border: 1.5px dashed var(--pebble-border); border-radius: var(--r-lg);
+  padding: 36px 24px; text-align: center; cursor: pointer;
+  transition: border-color 0.2s, background 0.2s; background: var(--surface-bg);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.dropzone:hover, .dropzoneOver {
+  border-color: var(--burg-border); background: var(--burg-soft);
+  box-shadow: 0 0 0 4px rgba(114,16,16,0.04);
+}
+.dropIcon {
+  width: 52px; height: 52px; border-radius: var(--r);
+  background: var(--burg-soft); border: 1px solid var(--burg-border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--burg-bright); margin-bottom: 6px;
+}
+.dropMain { font-size: 15px; font-weight: 600; color: var(--ink); }
+.dropSub  { font-size: 12.5px; color: var(--ink-3); }
+.dropFormats {
+  display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+  margin-top: 4px;
+}
+.dropFormats span {
+  padding: 3px 9px; border-radius: var(--r-sm); font-size: 11px;
+  font-weight: 600; background: var(--mist); border: 1px solid var(--pebble-border);
+  color: var(--ink-3);
+}
+
+/* File error */
+.fileError {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 14px; border-radius: var(--r-sm);
+  background: var(--burg-soft); border: 1px solid var(--burg-border);
+  font-size: 12.5px; color: var(--burg-bright);
+}
+
+/* Privacy note */
+.privacyNote {
+  display: flex; align-items: flex-start; gap: 7px;
+  font-size: 11.5px; color: var(--ink-4); line-height: 1.5;
+}
+
+/* ── Topic card ──────────────────────────────────────────────── */
+
+.fileChip {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 500;
+  background: var(--sky-soft); border: 1px solid var(--sky-border); color: var(--steel-dark);
+  max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.fileSize { opacity: 0.55; }
+
+.fieldWrap { display: flex; flex-direction: column; gap: 6px; }
+.fieldLabel {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.fieldInput {
+  width: 100%; padding: 11px 14px;
+  background: var(--surface-bg); border: 1.5px solid var(--pebble-border);
+  border-radius: var(--r-sm); font-family: 'DM Sans', sans-serif;
+  font-size: 14px; color: var(--ink); outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.fieldInput:focus { border-color: var(--steel-border); box-shadow: 0 0 0 3px var(--sky-soft); }
+.fieldInput::placeholder { color: var(--ink-4); }
+.fieldHint { font-size: 11.5px; color: var(--ink-4); line-height: 1.5; }
+
+.topicActions {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 4px;
+}
+
+/* ── Processing card ─────────────────────────────────────────── */
+
+.processingIcon {
+  width: 64px; height: 64px; border-radius: var(--r);
+  background: var(--burg); color: var(--mist);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 24px var(--burg-glow);
+}
+.spinning { animation: spin 1.4s linear infinite; }
+.errorIcon { background: var(--pebble-dark); box-shadow: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.processingTitle {
+  font-family: 'Cormorant Garamond', serif; font-size: 26px;
+  font-weight: 300; color: var(--ink);
+}
+.processingFile { font-size: 12px; color: var(--ink-4); }
+
+/* Progress */
+.progressWrap { width: 100%; }
+.progressHead {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--ink-3); margin-bottom: 8px;
+}
+.progressPct { color: var(--burg); font-weight: 700; }
+.progressTrack {
+  height: 5px; background: var(--pebble-light); border-radius: 3px; overflow: hidden;
+}
+.progressFill {
+  height: 100%; background: linear-gradient(90deg, var(--steel), var(--burg));
+  border-radius: 3px; transition: width 0.4s ease;
+}
+
+/* Steps */
+.stepList { width: 100%; display: flex; flex-direction: column; gap: 9px; text-align: left; }
+.stepItem { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.stepDot  { display: flex; align-items: center; flex-shrink: 0; }
+.stepDone    { color: var(--ink-2); }
+.stepDone .stepDot    { color: #6a7040; }
+.stepActive  { color: var(--ink); font-weight: 500; }
+.stepActive .stepDot  { color: var(--burg); }
+.stepPending { color: var(--ink-4); }
+.spinIcon    { animation: spin 1s linear infinite; }
+
+.wasmNote {
+  font-size: 11px; color: var(--ink-4); line-height: 1.6; max-width: 320px;
+}
+.cancelBtn {
+  background: none; border: none; font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px; color: var(--ink-4); cursor: pointer; transition: color 0.15s;
+}
+.cancelBtn:hover { color: var(--ink); }
+
+.errorBox {
+  width: 100%; padding: 12px; border-radius: var(--r-sm);
+  background: var(--burg-soft); border: 1px solid var(--burg-border);
+  font-size: 12.5px; color: var(--burg-bright); text-align: left; line-height: 1.5;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .setupCard, .processingCard { padding: 24px 20px; border-radius: var(--r-lg); }
+  .setupScreen { padding: 80px 16px 32px; }
+  .editorBody  { flex-direction: column; }
+}

@@ -7,8 +7,8 @@ import Auth      from '@/pages/Auth'
 import Dashboard from '@/pages/Dashboard'
 import Editor    from '@/pages/Editor'
 
-function PrivateRoute({ children, session }: { children: React.ReactNode; session: Session | null }) {
-  if (session === undefined as unknown) return <div style={{ height: '100vh', background: 'var(--dark-bg)' }} />
+function PrivateRoute({ children, session }: { children: React.ReactNode; session: Session | null | undefined }) {
+  if (session === undefined) return <div style={{ height: '100vh', background: 'var(--dark-bg)' }} />
   return session ? <>{children}</> : <Navigate to="/auth" replace />
 }
 
@@ -26,8 +26,8 @@ export default function App() {
       <Routes>
         <Route path="/"           element={<Landing session={session ?? null} />} />
         <Route path="/auth"       element={session ? <Navigate to="/dashboard" replace /> : <Auth />} />
-        <Route path="/dashboard"  element={<PrivateRoute session={session ?? null}><Dashboard /></PrivateRoute>} />
-        <Route path="/editor/:id" element={<PrivateRoute session={session ?? null}><Editor /></PrivateRoute>} />
+        <Route path="/dashboard"  element={<PrivateRoute session={session}><Dashboard /></PrivateRoute>} />
+        <Route path="/editor/:id" element={<PrivateRoute session={session}><Editor /></PrivateRoute>} />
         <Route path="*"           element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

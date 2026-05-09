@@ -1,0 +1,78 @@
+.section {
+  padding: 100px 40px; position: relative; z-index: 1;
+}
+.pill {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(183,204,227,0.5); margin-bottom: 20px;
+}
+.title {
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  font-size: clamp(32px, 4.5vw, 54px); line-height: 1.1;
+  text-align: center; color: var(--mist); letter-spacing: -0.01em; margin-bottom: 12px;
+}
+.sub {
+  text-align: center; font-size: 14.5px; color: var(--pebble); max-width: 440px;
+  margin: 0 auto 56px; line-height: 1.6;
+}
+
+.grid {
+  max-width: 960px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+
+.card {
+  background: var(--dark-card); border: 1px solid var(--border-dark);
+  border-radius: var(--r-lg); padding: 28px 24px;
+  position: relative; overflow: hidden; transition: all 0.2s;
+  display: flex; flex-direction: column; gap: 0;
+}
+.card:hover { transform: translateY(-4px); }
+
+/* Top accent bar per card */
+.topBar { position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+.card_sky  .topBar { background: linear-gradient(90deg, var(--sky), transparent); }
+.card_burg .topBar { background: linear-gradient(90deg, var(--burg-bright), transparent); }
+.card_steel .topBar { background: linear-gradient(90deg, var(--steel), transparent); }
+
+/* Hover border glow */
+.card_sky:hover   { border-color: rgba(183,204,227,0.3); }
+.card_burg:hover  { border-color: var(--burg-border); }
+.card_steel:hover { border-color: var(--steel-border); }
+
+.num {
+  font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300;
+  line-height: 1; margin-bottom: 14px; opacity: 0.22;
+}
+.card_sky   .num { color: var(--sky); }
+.card_burg  .num { color: var(--burg-bright); }
+.card_steel .num { color: var(--steel); }
+
+.iconWrap {
+  width: 44px; height: 44px; border-radius: var(--r-sm); margin-bottom: 18px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid transparent;
+}
+.icon_sky   { background: var(--sky-soft);   border-color: var(--sky-border);   color: var(--steel-dark); }
+.icon_burg  { background: var(--burg-soft);  border-color: var(--burg-border);  color: var(--burg-bright); }
+.icon_steel { background: var(--steel-soft); border-color: var(--steel-border); color: var(--steel-dark); }
+
+.cardTitle {
+  font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600;
+  color: var(--mist); margin-bottom: 10px;
+}
+.cardBody {
+  font-size: 13px; color: var(--pebble); line-height: 1.65;
+  font-weight: 300; flex: 1; margin-bottom: 18px;
+}
+.tag {
+  display: inline-block; padding: 3px 10px; border-radius: 10px;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+  background: rgba(255,255,255,0.04); color: var(--pebble);
+  border: 1px solid var(--border-dark); align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 70px 20px; }
+  .grid    { grid-template-columns: 1fr; }
+}

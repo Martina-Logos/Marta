@@ -1,3 +1,38 @@
+/* ── AuthForm card shell ──────────────────────────────── */
+.card {
+  width: 100%; max-width: 420px;
+  background: var(--dark-card);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--r-xl); overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+.head {
+  padding: 30px 28px 0; text-align: center;
+  background: linear-gradient(180deg, rgba(183,204,227,0.04) 0%, transparent 100%);
+}
+.logoMark {
+  width: 44px; height: 44px; background: var(--burg);
+  border-radius: var(--r); display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600;
+  color: var(--mist); margin: 0 auto 14px; box-shadow: 0 4px 20px var(--burg-glow);
+}
+.title {
+  font-family: 'Cormorant Garamond', serif; font-size: 26px;
+  font-weight: 400; color: var(--mist); margin-bottom: 5px;
+}
+.sub  { font-size: 13px; color: var(--pebble); padding-bottom: 22px; }
+.tabs { display: flex; border-bottom: 1px solid var(--border-dark); }
+.tab  {
+  flex: 1; padding: 13px; text-align: center;
+  font-size: 13px; font-weight: 600; color: var(--pebble);
+  cursor: pointer; background: none; border: none;
+  font-family: 'DM Sans', sans-serif;
+  border-bottom: 2px solid transparent; transition: all 0.15s;
+}
+.tabActive { color: var(--mist); border-bottom-color: var(--burg); }
+.body { padding: 24px 28px 30px; }
+
+
 .form { display: flex; flex-direction: column; gap: 16px; }
 
 .field { display: flex; flex-direction: column; gap: 6px; }
